@@ -60,23 +60,20 @@ p {
   color: #ddd;
 }
 
+.player {
+  margin-top: 10px;
+}
+
 iframe {
   width: 100%;
   height: 80px;
   border: none;
   border-radius: 12px;
-  margin-top: 10px;
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
@@ -134,15 +131,27 @@ function render() {
       <strong>${s.title}</strong>
       <div class="lyrics">
         <p>${s.lyrics.replace(/\n/g,"<br>")}</p>
-        <iframe src="${s.spotify}"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-        </iframe>
+        <div class="player"></div>
       </div>
     `;
 
     div.onclick = () => {
+      // ปิดเพลงอื่นทั้งหมด
       document.querySelectorAll(".lyrics").forEach(l => l.style.display = "none");
-      div.querySelector(".lyrics").style.display = "block";
+      document.querySelectorAll(".player").forEach(p => p.innerHTML = "");
+
+      const lyrics = div.querySelector(".lyrics");
+      const player = div.querySelector(".player");
+
+      lyrics.style.display = "block";
+
+      // lazy load Spotify iframe
+      player.innerHTML = `
+        <iframe
+          src="${s.spotify}"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      `;
     };
 
     list.appendChild(div);
