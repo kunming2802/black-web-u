@@ -2,144 +2,213 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>song for you</title>
-
+<title>Song For You 🌑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-* {
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  padding: 40px 0;
-
-  overflow-y: auto;   /* ✅ เลื่อนได้ */
-  overflow-x: hidden;
-}
-
-.container {
-  width: 90%;
-  max-width: 520px;
-  background: rgba(20,20,20,0.95);
-  border-radius: 25px;
-  padding: 24px;
-  position: relative;
-  z-index: 2;
-}
-
-h1 {
-  text-align: center;
-}
-
-.intro {
-  margin: 12px 0 20px;
-  padding: 14px;
-  border-radius: 16px;
-  text-align: center;
-  font-size: 14px;
-  color: #ffd6e8;
-  background: rgba(255,105,180,0.08);
-  border: 1.5px solid rgba(255,105,180,0.6);
-  box-shadow: 0 0 18px rgba(255,105,180,0.25);
-  animation: bounce 2.5s infinite;
-}
-
-.song {
-  background: rgba(255,255,255,0.05);
-  border-radius: 15px;
-  padding: 14px;
-  margin: 12px 0;
-  cursor: pointer;
-  transition: 0.3s;
-  animation: fadeUp 0.6s ease forwards;
-}
-
-.song:hover {
-  background: rgba(255,105,180,0.12);
-  transform: scale(1.03);
-}
-
-.lyrics {
-  display: none;
-  margin-top: 12px;
-  padding: 14px;
-  border-radius: 14px;
-  background: rgba(255,105,180,0.08);
-  border: 1.5px solid rgba(255,105,180,0.6);
-  box-shadow: 0 0 15px rgba(255,105,180,0.25);
-  text-align: center;
-  animation: pop 0.4s ease;
-}
-
-.lyrics p {
-  color: #ffd6e8;
-  font-size: 14px;
-}
-
-.player {
-  margin-top: 10px;
-}
-
-iframe {
-  width: 100%;
-  height: 80px;
-  border: none;
-  border-radius: 12px;
-}
-
-/* Floating Hearts */
-.heart {
-  position: fixed;
-  bottom: -20px;
-  color: hotpink;
-  pointer-events: none;
-  animation: floatUp linear forwards;
-  opacity: 0.85;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pop {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-@keyframes floatUp {
-  from {
-    transform: translateY(0) scale(0.6);
-    opacity: 0;
+  * {
+    box-sizing: border-box;
+    font-family: 'DM Serif Display', serif;
   }
-  20% { opacity: 1; }
-  to {
-    transform: translateY(-120vh) scale(1.4);
-    opacity: 0;
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    
+    /* --- พื้นหลัง: Midnight Galaxy (ดำ-ม่วงลึก-น้ำเงินลึก) --- */
+    background: linear-gradient(
+      -45deg, 
+      #000000,  /* ดำสนิท */
+      #050505,  /* ดำเกือบสนิท */
+      #0f0c29,  /* น้ำเงินดำ */
+      #1a0b2e   /* ม่วงดำ */
+    );
+    background-size: 400% 400%;
+    animation: galaxyMove 15s ease infinite;
+    
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    overflow-y: auto;
   }
-}
+
+  /* อนิเมชั่นให้สีดำไหลช้าๆ ดูลึกลับ */
+  @keyframes galaxyMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .container {
+    width: 90%;
+    max-width: 520px;
+    
+    /* Glassmorphism: แบบ Dark Mode เข้มๆ */
+    background: rgba(10, 10, 10, 0.6); /* พื้นหลังดำโปร่งแสง */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08); /* ขอบจางมากๆ */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8); /* เงาเข้ม */
+    
+    border-radius: 25px;
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    /* สีขาวเหลือบเงิน */
+    background: linear-gradient(to bottom, #ffffff, #a1a1a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+  }
+
+  .intro {
+    margin: 0 auto 30px;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #bbbbbb; /* สีเทาควันบุหรี่ */
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    width: fit-content;
+  }
+
+  .song {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .song:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .song strong {
+    font-size: 18px;
+    color: #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .visualizer {
+    display: flex;
+    align-items: flex-end;
+    height: 15px;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .active .visualizer {
+    opacity: 1;
+  }
+
+  /* แท่งเสียงสีม่วงนีออน เข้ากับตีม Dark */
+  .bar {
+    width: 3px;
+    background: #bd00ff;
+    animation: sound 0.5s infinite alternate;
+    border-radius: 2px;
+    box-shadow: 0 0 8px #bd00ff;
+  }
+  .bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+  .bar:nth-child(2) { height: 10px; animation-delay: 0.2s; }
+  .bar:nth-child(3) { height: 8px; animation-delay: 0.3s; }
+  .bar:nth-child(4) { height: 12px; animation-delay: 0.15s; }
+
+  @keyframes sound {
+    0% { height: 4px; opacity: 0.6; }
+    100% { height: 14px; opacity: 1; }
+  }
+
+  .lyrics {
+    display: none;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 16px;
+    /* พื้นหลังดำจางๆ */
+    background: rgba(0, 0, 0, 0.6); 
+    border: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    animation: slideDown 0.5s ease;
+  }
+
+  .lyrics p {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    /* เงาดำซ้อนกันให้อ่านชัดสุดๆ */
+    text-shadow: 0 2px 4px #000;
+  }
+
+  iframe {
+    width: 100%;
+    height: 80px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+
+  /* --- หัวใจเรืองแสง (Glowing Hearts) --- */
+  .heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    color: #ff69b4; 
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    opacity: 0;
+    z-index: 0;
+    
+    /* เรืองแสงจัดๆ ตัดกับพื้นหลังดำ */
+    text-shadow: 
+      0 0 10px #ff1493,
+      0 0 20px #ff1493,
+      0 0 30px #ff0080;
+      
+    filter: blur(0.4px);
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(0.5); opacity: 0; }
+    15% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+  }
 </style>
 </head>
 
 <body>
 
 <div class="container">
-  <h1>song for you ♥</h1>
+  <h1>🖤Song For You🖤</h1>
 
   <div class="intro">
-    Love is the flower<br>
-    you've got to let grow.
+    'Love is the flower<br>
+    you've got to let grow'
   </div>
 
   <div id="songList"></div>
@@ -186,9 +255,7 @@ const songs = [
     title: "Puppy Love – Gani",
     lyrics: "Hey, that's what I want to say to you<br>Babe, oh I wish that I could say that too",
     spotify: "https://open.spotify.com/embed/track/4syXonKFmk4js3ojWy56aI"
-  },
-
-
+  }
 ];
 
 const list = document.getElementById("songList");
@@ -197,25 +264,32 @@ function createHeart(extra = false) {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "♥";
+  
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (extra ? 14 : 10) + Math.random() * 20 + "px";
-  heart.style.animationDuration = (extra ? 2 : 6) + Math.random() * 3 + "s";
+  heart.style.fontSize = (extra ? 20 : 12) + Math.random() * 20 + "px";
+  heart.style.animationDuration = (extra ? 4 : 8) + Math.random() * 5 + "s";
+  
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 8000);
+  setTimeout(() => heart.remove(), 12000); // ให้นานขึ้นหน่อยเพราะลอยช้าๆ สวยๆ
 }
 
-setInterval(() => createHeart(false), 400);
+setInterval(() => createHeart(false), 700);
 
 function burstHearts() {
-  for (let i = 0; i < 20; i++) createHeart(true);
+  for (let i = 0; i < 25; i++) createHeart(true);
 }
 
 function render() {
-  songs.forEach(s => {
+  songs.forEach((s) => {
     const div = document.createElement("div");
     div.className = "song";
     div.innerHTML = `
-      <strong>${s.title}</strong>
+      <strong>
+        ${s.title} 
+        <div class="visualizer">
+           <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </div>
+      </strong>
       <div class="lyrics">
         <p>${s.lyrics}</p>
         <div class="player"></div>
@@ -225,7 +299,9 @@ function render() {
     div.onclick = () => {
       document.querySelectorAll(".lyrics").forEach(l => l.style.display = "none");
       document.querySelectorAll(".player").forEach(p => p.innerHTML = "");
+      document.querySelectorAll(".song").forEach(s => s.classList.remove("active"));
 
+      div.classList.add("active");
       const lyrics = div.querySelector(".lyrics");
       const player = div.querySelector(".player");
 
